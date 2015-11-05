@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kregel\\AuthLogin": "src/AuthLogin"
+            "Kregel\\AuthLogin\\": "src/AuthLogin/"
         }
     },
     "minimum-stability": "stable"
