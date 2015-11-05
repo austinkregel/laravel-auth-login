@@ -1,6 +1,7 @@
 {
     "name": "kregel/auth-login",
-    "description": "",
+    "description": "This is the original auth flow for Laravel, just brough to the package environment.",
+    "tags": ["login", "auth", "laravel-login","auth-flow"],
     "authors": [
         {
             "name": "Austin Kregel",
