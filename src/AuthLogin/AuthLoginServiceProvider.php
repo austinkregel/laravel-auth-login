@@ -22,11 +22,13 @@ class AuthLoginServiceProvider extends ServiceProvider
             $this->defineRoutes();
         });
 
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'auth-login');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'auth-login');
         $this->publishes([
-            __DIR__ . '/resources/views' => base_path('resources/views/vendor/auth-login'),
-            __DIR__ . '/config/config.php' => config_path('kregel/auth-login.php'),
-        ]);
+            __DIR__ . '/../resources/views' => base_path('resources/views/vendor/auth-login')
+	], 'views');
+	$this->publishes([
+            __DIR__ . '/../config/config.php' => config_path('kregel/auth-login.php'),
+        ], 'config);
     }
 
     /**
