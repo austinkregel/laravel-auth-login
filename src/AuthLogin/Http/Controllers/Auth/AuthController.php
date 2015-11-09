@@ -2,6 +2,7 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
+use Request;
 use App\User;
 use Validator;
 use Kregel\AuthLogin\Http\Controllers\Controller;
