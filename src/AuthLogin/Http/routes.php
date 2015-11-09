@@ -6,6 +6,7 @@ Route::group(['prefix' => config('kregel.auth-login.prefix'), 'as' => 'auth-logi
     Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
     Route::post('login', ['as' => 'post-login', 'uses' => 'Auth\AuthController@postLogin']);
 
+    Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
     Route::get('register', ['as' => 'register', 'uses' => 'Auth\AuthController@getRegister']);
     Route::post('register', ['as' => 'post-register', 'uses' => 'Auth\AuthController@postRegister']);
