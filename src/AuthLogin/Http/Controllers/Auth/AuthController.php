@@ -2,9 +2,9 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
-use Request;
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
 use Kregel\AuthLogin\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
