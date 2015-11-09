@@ -28,7 +28,7 @@ class AuthLoginServiceProvider extends ServiceProvider
 	], 'views');
 	$this->publishes([
             __DIR__ . '/../config/config.php' => config_path('kregel/auth-login.php'),
-        ], 'config);
+        ], 'config');
     }
 
     /**
