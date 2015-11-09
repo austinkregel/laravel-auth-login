@@ -132,6 +132,19 @@ class AuthController extends Controller
     }
 
     /**
+     * Get the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        if (property_exists($this, 'redirectPath')) {
+            return $this->redirectPath;
+        }
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+
+    /**
      * Get the path to the login route.
      *
      * @return string
@@ -226,19 +239,6 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-    }
-
-    /**
-     * Get the post register / login redirect path.
-     *
-     * @return string
-     */
-    public function redirectPath()
-    {
-        if (property_exists($this, 'redirectPath')) {
-            return $this->redirectPath;
-        }
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 
     /**
