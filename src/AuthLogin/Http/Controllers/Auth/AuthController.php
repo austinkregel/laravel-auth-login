@@ -30,11 +30,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        if (view()->exists('auth-login::authenticate')) {
-            return view('auth-login::authenticate');
-        }
-
-        return view('auth-login::login');
+        return view('auth-login::auth.login');
     }
 
     /**
@@ -185,7 +181,7 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
-        return view('auth-login::register');
+        return view('auth-login::auth.register');
     }
 
     /**
@@ -233,12 +229,9 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user = new User;
-        $user->fill([
-            'uuid' => $this->uuid(openssl_random_pseudo_bytes(16)),
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user->fill($data);
+        $user->save();
+        return $user;
     }
 
     /**

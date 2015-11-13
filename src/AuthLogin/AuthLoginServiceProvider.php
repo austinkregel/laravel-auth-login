@@ -25,8 +25,8 @@ class AuthLoginServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'auth-login');
         $this->publishes([
             __DIR__ . '/../resources/views' => base_path('resources/views/vendor/auth-login')
-	], 'views');
-	$this->publishes([
+        ], 'views');
+        $this->publishes([
             __DIR__ . '/../config/config.php' => config_path('kregel/auth-login.php'),
         ], 'config');
     }
