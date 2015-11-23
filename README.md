@@ -1,7 +1,7 @@
 ## What is this package?
 This is just to bring back the basic auth login flow Laravel had before 5.1. I don't claim ownership of the controller's code or the views. Even if I tweaked it it was originally released by [Taylor Otwell](https://github.com/taylorotwell)
 
-I mearly got sick of having to re-type it since the views were gotten rid of. 
+I mearly got sick of having to re-type it since the views are now gone. 
 
 ## Security Vulnerabilities
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
