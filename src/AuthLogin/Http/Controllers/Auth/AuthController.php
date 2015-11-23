@@ -230,6 +230,8 @@ class AuthController extends Controller
     {
         $user = new User;
         $user->fill($data);
+        if(!empty($user->password))
+            $user->password = brcrypt($data['password']);
         $user->save();
         return $user;
     }
