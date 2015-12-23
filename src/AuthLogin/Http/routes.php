@@ -1,4 +1,5 @@
 <?php
+
 Route::group(['prefix' => config('kregel.auth-login.prefix'), 'as' => 'auth-login::'], function () {
     Route::get('/', function () {
         return redirect(route('auth-login::login'));

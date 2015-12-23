@@ -27,14 +27,11 @@ class PasswordController extends Controller
 
     /**
      * Create a new password controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->middleware('guest');
     }
-
 
     /**
      * Display the form to request a password reset link.
@@ -49,7 +46,8 @@ class PasswordController extends Controller
     /**
      * Send a reset link to the given user.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postEmail(Request $request)
@@ -82,13 +80,14 @@ class PasswordController extends Controller
     /**
      * Display the password reset view for the given token.
      *
-     * @param  string $token
+     * @param string $token
+     *
      * @return \Illuminate\Http\Response
      */
     public function getReset($token = null)
     {
         if (is_null($token)) {
-            throw new NotFoundHttpException;
+            throw new NotFoundHttpException();
         }
 
         return view('auth-login::auth.reset')->with('token', $token);
@@ -97,7 +96,8 @@ class PasswordController extends Controller
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postReset(Request $request)
@@ -130,9 +130,8 @@ class PasswordController extends Controller
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword $user
-     * @param  string $password
-     * @return void
+     * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param string                                      $password
      */
     protected function resetPassword($user, $password)
     {

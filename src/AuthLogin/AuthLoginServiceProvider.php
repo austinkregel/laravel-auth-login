@@ -1,11 +1,11 @@
-<?php namespace Kregel\AuthLogin;
+<?php
+
+namespace Kregel\AuthLogin;
 
 use Illuminate\Support\ServiceProvider;
-use Route;
 
 class AuthLoginServiceProvider extends ServiceProvider
 {
-
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -22,12 +22,12 @@ class AuthLoginServiceProvider extends ServiceProvider
             $this->defineRoutes();
         });
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'auth-login');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'auth-login');
         $this->publishes([
-            __DIR__ . '/../resources/views' => base_path('resources/views/vendor/auth-login')
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/auth-login'),
         ], 'views');
         $this->publishes([
-            __DIR__ . '/../config/config.php' => config_path('kregel/auth-login.php'),
+            __DIR__.'/../config/config.php' => config_path('kregel/auth-login.php'),
         ], 'config');
     }
 
@@ -40,15 +40,13 @@ class AuthLoginServiceProvider extends ServiceProvider
             $router = app('router');
 
             $router->group(['namespace' => 'Kregel\\AuthLogin\\Http\\Controllers'], function ($router) {
-                require __DIR__ . '/Http/routes.php';
+                require __DIR__.'/Http/routes.php';
             });
         }
     }
 
     /**
      * Register the service provider.
-     *
-     * @return void
      */
     public function register()
     {
@@ -64,5 +62,4 @@ class AuthLoginServiceProvider extends ServiceProvider
     {
         return [];
     }
-
 }

@@ -16,7 +16,6 @@ class AuthController extends Controller
 
     /**
      * Create a new authentication controller instance.
-     *
      */
     public function __construct()
     {
@@ -36,7 +35,8 @@ class AuthController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postLogin(Request $request)
@@ -99,7 +99,8 @@ class AuthController extends Controller
     /**
      * Get the needed authorization credentials from the request.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     protected function getCredentials(Request $request)
@@ -110,8 +111,9 @@ class AuthController extends Controller
     /**
      * Send the response after the user was authenticated.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  bool $throttles
+     * @param \Illuminate\Http\Request $request
+     * @param bool                     $throttles
+     *
      * @return \Illuminate\Http\Response
      */
     protected function handleUserWasAuthenticated(Request $request, $throttles)
@@ -137,6 +139,7 @@ class AuthController extends Controller
         if (property_exists($this, 'redirectPath')) {
             return $this->redirectPath;
         }
+
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 
@@ -187,7 +190,8 @@ class AuthController extends Controller
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postRegister(Request $request)
@@ -208,7 +212,8 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -223,21 +228,25 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
-        $user = new User;
+        $user = new User();
         $user->fill($data);
-        if(!empty($user->password))
+        if (!empty($user->password)) {
             $user->password = brcrypt($data['password']);
+        }
         $user->save();
+
         return $user;
     }
 
     /**
      * @param $data
+     *
      * @return string
      */
     private function uuid($data)
