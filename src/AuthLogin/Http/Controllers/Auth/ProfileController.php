@@ -2,7 +2,12 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
-class ProfileController
-{
+use Kregel\AuthLogin\Http\Controllers\Controller;
 
+class ProfileController extends Controller
+{
+    public function profile($id, $name)
+    {
+
+    }
 }
