@@ -2,11 +2,11 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
+use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Foundation\Auth\ResetsPasswords;
 use Kregel\AuthLogin\Http\Controllers\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -103,8 +103,8 @@ class PasswordController extends Controller
     public function postReset(Request $request)
     {
         $this->validate($request, [
-            'token' => 'required',
-            'email' => 'required|email',
+            'token'    => 'required',
+            'email'    => 'required|email',
             'password' => 'required|confirmed|min:6',
         ]);
 
