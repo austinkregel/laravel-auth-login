@@ -8,6 +8,5 @@ class ProfileController extends Controller
 {
     public function profile($id, $name)
     {
-
     }
 }

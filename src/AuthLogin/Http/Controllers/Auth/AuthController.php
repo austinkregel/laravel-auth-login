@@ -2,13 +2,13 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
-use Auth;
-use Lang;
 use App\User;
-use Validator;
+use Auth;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Kregel\AuthLogin\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Lang;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -219,8 +219,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }

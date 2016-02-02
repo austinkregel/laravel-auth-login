@@ -2,9 +2,9 @@
 
 return [
     'view-base' => 'warden::layouts.base',
-    'prefix' => 'auth',
-    'profile' => [
+    'prefix'    => 'auth',
+    'profile'   => [
         'enabled' => true,
-        'route' => 'profile',
+        'route'   => 'profile',
     ],
 ];
