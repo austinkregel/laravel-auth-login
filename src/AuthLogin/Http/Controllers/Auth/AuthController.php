@@ -2,7 +2,6 @@
 
 namespace Kregel\AuthLogin\Http\Controllers\Auth;
 
-use App\User;
 use Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
@@ -234,7 +233,8 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new User();
+        $user_model = config('auth.model');
+        $user = new $user_model;
         $user->fill($data);
         if (!empty($user->password)) {
             $user->password = bcrypt($data['password']);
