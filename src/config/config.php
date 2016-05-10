@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'view-base' => 'warden::layouts.base',
+    'base-layout' => 'warden::layouts.base',
     'prefix'    => 'auth',
     'profile'   => [
         'enabled' => true,
