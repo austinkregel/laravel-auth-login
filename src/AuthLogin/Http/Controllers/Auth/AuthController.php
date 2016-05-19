@@ -234,7 +234,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $user_model = config('auth.model');
-        $user = new $user_model;
+        $user = new $user_model();
         $user->fill($data);
         if (!empty($user->password)) {
             $user->password = bcrypt($data['password']);
