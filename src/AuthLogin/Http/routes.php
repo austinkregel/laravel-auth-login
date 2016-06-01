@@ -1,21 +1,25 @@
 <?php
 
-Route::group(['prefix' => config('kregel.auth-login.prefix'), 'as' => 'auth-login::'], function () {
+Route::group(['prefix' => config('kregel.auth-login.prefix'), 'as' => 'auth-login::', 'namespace' => 'Auth','middleware' => config('kregel.auth-login.middleware')], function () {
     Route::get('/', function () {
         return redirect(route('auth-login::login'));
     });
-    Route::get('login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
-    Route::post('login', ['as' => 'post-login', 'uses' => 'Auth\AuthController@postLogin']);
+    Route::get('login', ['as' => 'login', 'uses' => 'AuthController@getLogin']);
+    Route::post('login', ['as' => 'post-login', 'uses' => 'AuthController@postLogin']);
 
-    Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
+    Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
 
-    Route::get('register', ['as' => 'register', 'uses' => 'Auth\AuthController@getRegister']);
-    Route::post('register', ['as' => 'post-register', 'uses' => 'Auth\AuthController@postRegister']);
+    Route::get('register', ['as' => 'register', 'uses' => 'AuthController@getRegister']);
+    Route::post('register', ['as' => 'post-register', 'uses' => 'AuthController@postRegister']);
 
-    Route::get('email', ['as' => 'email', 'uses' => 'Auth\PasswordController@getEmail']);
-    Route::post('email', ['as' => 'post-email', 'uses' => 'Auth\PasswordController@postEmail']);
+    Route::get('email', ['as' => 'email', 'uses' => 'PasswordController@getEmail']);
+    Route::post('email', ['as' => 'post-email', 'uses' => 'PasswordController@postEmail']);
 
-    Route::get('reset', ['as' => 'reset', 'uses' => 'Auth\PasswordController@getReset']);
-    Route::post('reset', ['as' => 'post-reset', 'uses' => 'Auth\PasswordController@postReset']);
+    Route::get('reset/{code}', ['as' => 'reset', 'uses' => 'PasswordController@getReset']);
+    Route::post('reset/{code}', ['as' => 'post-reset', 'uses' => 'PasswordController@postReset']);
 
+});
+
+Route::group(['prefix' => config('kregel.auth-login.prefix').'/api', 'as' => 'auth-login::api.', 'middleware' => config('kregel.auth-login.middleware-api')], function () {
+    Route::post('authenticate', ['before' => 'jwt-auth', 'as' => 'authenticate', 'uses' => 'JWTAuthController@authenticate']);
 });

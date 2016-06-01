@@ -139,7 +139,7 @@ class PasswordController extends Controller
 
         $user->save();
 
-        Auth::login($user);
+        auth()->login($user);
     }
 
     /**

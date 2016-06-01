@@ -10,12 +10,15 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.1.*"
+        "illuminate/support": "5.2.*",
+        "tymon/jwt-auth":"dev-develop"
+
     },
     "autoload": {
         "psr-4": {
             "Kregel\\AuthLogin\\": "src/AuthLogin/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
