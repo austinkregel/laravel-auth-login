@@ -29,7 +29,6 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->redirectTo = config('kregel.auth-login.redirect-to');
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
     /**
@@ -88,5 +87,11 @@ class AuthController extends Controller
     public function showLoginForm()
     {
         return view('auth-login::auth.login');
+    }
+
+    public function getLogout()
+    {
+        \Session::flush();
+        return redirect('/');
     }
 }
