@@ -50,6 +50,7 @@ class AuthLoginServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(\Tymon\JWTAuth\Providers\LaravelServiceProvider::class);
     }
 
     /**
