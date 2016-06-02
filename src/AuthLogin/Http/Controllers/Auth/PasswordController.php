@@ -26,14 +26,6 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
     /**
-     * Create a new password controller instance.
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
-    /**
      * Display the form to request a password reset link.
      *
      * @return \Illuminate\Http\Response
