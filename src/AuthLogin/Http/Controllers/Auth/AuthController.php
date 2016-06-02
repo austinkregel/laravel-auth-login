@@ -11,8 +11,8 @@ use Validator;
 class AuthController extends Controller
 {
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    protected $registerView = 'auth-login::auth.register';
-    protected $loginView = 'auth-login::auth.login';
+    protected $registerView = 'auth-login::register';
+    protected $loginView = 'auth-login::login';
     protected $emailView = 'auth-login::emails.password';
     /**
      * Where to redirect users after login / registration.
@@ -56,7 +56,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $user_model = config('auth.model');
+        $user_model = config('auth.providers.users.model');
         $user = new $user_model;
         $user->fill($data);
         if (!empty($user->password)) {
@@ -86,7 +86,7 @@ class AuthController extends Controller
     }
     public function showLoginForm()
     {
-        return view('auth-login::auth.login');
+        return view($this->loginView);
     }
 
     public function getLogout()
