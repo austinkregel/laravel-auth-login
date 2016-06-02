@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'base-layout' => 'vendor.spark.layouts.app',
+    'base-layout' => 'layouts.app',
     'prefix' => 'auth',
     'profile' => [
-        'enabled' => true,
+        'enabled' => false,
         'route' => 'profile',
     ],
     'redirect-to' => '/',
