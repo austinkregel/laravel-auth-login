@@ -1,10 +1,13 @@
 <?php
 
 return [
-    'base-layout' => 'warden::layouts.base',
-    'prefix'    => 'auth',
-    'profile'   => [
+    'base-layout' => 'vendor.spark.layouts.app',
+    'prefix' => 'auth',
+    'profile' => [
         'enabled' => true,
-        'route'   => 'profile',
+        'route' => 'profile',
     ],
+    'redirect-to' => '/',
+    'middleware' => ['web', 'guest'],
+    'middleware-api' => ['api']
 ];
