@@ -32,7 +32,7 @@ class PasswordController extends Controller
      */
     public function getEmail()
     {
-        return view('auth-login::auth.password');
+        return view('auth-login::passwords.email');
     }
 
     /**
@@ -82,7 +82,7 @@ class PasswordController extends Controller
             throw new NotFoundHttpException();
         }
 
-        return view('auth-login::auth.reset')->with('token', $token);
+        return view('auth-login::passwords.reset')->with('token', $token);
     }
 
     /**
