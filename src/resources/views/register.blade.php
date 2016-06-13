@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends(config('kregel.auth-login.base-layout'))
 @section('content')
 <div class="container">
     <div class="row">

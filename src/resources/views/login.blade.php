@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(config('kregel.auth-login.base-layout'))
 
 @section('content')
 <div class="container">
@@ -53,7 +53,7 @@
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ route('auth-login::email') }}">Forgot Your Password?</a>
                             </div>
                         </div>
                     </form>
