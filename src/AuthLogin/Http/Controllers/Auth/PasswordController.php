@@ -25,6 +25,8 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $emailView = 'auth-login::emails.password';
+
     /**
      * Display the form to request a password reset link.
      *
