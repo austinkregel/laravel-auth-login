@@ -11,9 +11,9 @@ use Validator;
 class AuthController extends Controller
 {
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    protected $registerView = 'auth-login::register';
-    protected $loginView = 'auth-login::login';
-    protected $emailView = 'auth-login::emails.password';
+    public $registerView = 'auth-login::register';
+    public $loginView = 'auth-login::login';
+    public $emailView = 'auth-login::emails.password';
     /**
      * Where to redirect users after login / registration.
      *
