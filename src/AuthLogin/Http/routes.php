@@ -15,8 +15,8 @@ Route::group(['prefix' => config('kregel.auth-login.prefix'), 'as' => 'auth-logi
         Route::get('email', ['as' => 'email', 'uses' => 'PasswordController@getEmail']);
         Route::post('email', ['as' => 'post-email', 'uses' => 'PasswordController@postEmail']);
 
-        Route::get('reset/{code}', ['as' => 'reset', 'uses' => 'PasswordController@getReset']);
-        Route::post('reset/{code}', ['as' => 'post-reset', 'uses' => 'PasswordController@postReset']);
+        Route::get('reset/{code?}', ['as' => 'reset', 'uses' => 'PasswordController@getReset']);
+        Route::post('reset/{code?}', ['as' => 'post-reset', 'uses' => 'PasswordController@postReset']);
 
     });
     Route::group(['middleware' => ['web']], function(){
