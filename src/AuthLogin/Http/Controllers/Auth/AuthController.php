@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Http\Request;
 use Kregel\AuthLogin\Http\Controllers\Controller;
 use Validator;
+use Auth;
 
 class AuthController extends Controller
 {
