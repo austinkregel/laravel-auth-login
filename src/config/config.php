@@ -9,5 +9,15 @@ return [
     ],
     'redirect-to' => '/',
     'middleware' => ['web', 'guest'],
-    'middleware-api' => ['api']
+    'middleware-api' => ['api'],
+    'events' => [
+        'login' => [
+            'failed' => function ($reqeuest, $reason) {
+                
+            },
+            'success' => function ($reqeuest, $reason) {
+                
+            }
+        ]
+    ]
 ];
