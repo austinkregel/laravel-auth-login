@@ -1,0 +1,23 @@
+{
+    "name": "kregel/auth-login",
+    "description": "This is the original auth flow for Laravel, just brought to the package environment.",
+    "keywords": ["login", "auth", "laravel-login","auth-flow", "laravel"],
+    "authors": [
+        {
+            "name": "Austin Kregel",
+            "email": "me@austinkregel.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.2.*",
+        "tymon/jwt-auth":"dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kregel\\AuthLogin\\": "src/AuthLogin/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
