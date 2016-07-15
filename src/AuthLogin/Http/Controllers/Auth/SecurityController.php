@@ -20,12 +20,14 @@ class SecurityController extends Controller
         if(count(array_diff($request->all(), ['_token', '_method'] )) < 1){
             return redirect()->back()->withErrors('You don\'t have any thing for input.');
         }
-        if (Hash::check($request->get('old_password'), auth()->user()->password)) {
+        if (Hash::check($request->get('old_password'), auth()->user()->password) === true) {
 
-            if ($request->get('password') === $request->get('password_confirmation')) {
+            if ($request->get('password') === $request->get('confirm_password')) {
                 auth()->user()->fill([
                     'password' => bcrypt($request->get('password'))
                 ])->save();
+                \Session::flash('message', 'Password changed!');
+                return redirect()->back();
             } else {
                 return redirect()->back()->withErrors('Your new password doesn\'t match the confirmed password');
             }
@@ -35,3 +37,4 @@ class SecurityController extends Controller
         }
     }
 }
+
