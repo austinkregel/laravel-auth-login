@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "5.2.*",
-        "tymon/jwt-auth":"dev-master"
+        "tymon/jwt-auth":"0.5.*"
     },
     "autoload": {
         "psr-4": {
