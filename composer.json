@@ -17,7 +17,5 @@
         "psr-4": {
             "Kregel\\AuthLogin\\": "src/AuthLogin/"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
